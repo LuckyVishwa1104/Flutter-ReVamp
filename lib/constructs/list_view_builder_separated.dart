@@ -47,27 +47,38 @@ class ListViewBuilderSeparated extends StatelessWidget {
       drawer: const Icon(Icons.grid_3x3),
 
       // body
-
       body: Container(
         decoration: const BoxDecoration(color: Colors.grey),
         padding: const EdgeInsets.all(10),
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(color: Colors.white),
-          height: 550,
+          height: 250,
           child: ListView.separated(
+            
+              padding: EdgeInsets.zero, // use this to avoid additinal at the bottom of the last item of list view
+
+              scrollDirection: Axis.horizontal,  // to set the alignment of the children
+
+              physics: const AlwaysScrollableScrollPhysics(),  // use to control the scrolling behaviour
+
               itemBuilder: (context, index) => Container(
                     height: 140,
-                    width: double.infinity,
+                    width: 150,
                     decoration: BoxDecoration(
                       color: containerColor[index],
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-              separatorBuilder: (context, index) => const SizedBox(height: 10,),
+              separatorBuilder: (context, index) => const SizedBox(
+                    // height: 10,
+                    width: 10,
+                  ),
               itemCount: containerColor.length),
         ),
       ),
     );
   }
+
+  
 }
