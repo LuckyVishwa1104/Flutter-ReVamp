@@ -5,6 +5,8 @@ class ListViewBuilderDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // list of colors
     List<Color> containerColor = [
       Colors.purple,
       Colors.indigo,
@@ -16,6 +18,8 @@ class ListViewBuilderDemo extends StatelessWidget {
     ];
 
     return Scaffold(
+
+      // App bar - 
       appBar: AppBar(
         // foregrand and background color
         backgroundColor: Colors.black,
@@ -51,14 +55,23 @@ class ListViewBuilderDemo extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Container(
           padding: const EdgeInsets.all(10),
+          height: 340,  // vertical list view controlls height
+          // width: 350,   // horizontal list view controlls width
           decoration: const BoxDecoration(color: Colors.white),
-          height: 550,
           child: ListView.builder(
+            shrinkWrap: true,
+
+            padding: EdgeInsets.zero,  // use this to avoid additinal at the bottom of the last item of list view
+
+            scrollDirection: Axis.vertical,  // to set the alignment of the children
+
+            physics: const BouncingScrollPhysics(),  // use to control the scrolling behaviour
+
             itemCount: containerColor.length,
             itemBuilder: (context, index) {
               return Container(
-                height: 140,
-                width: double.infinity,
+                height: 140,  // applicable whenn vertical
+                width: 300,   // applicable when horizontal
                 decoration: BoxDecoration(
                   color: containerColor[index],
                   borderRadius: BorderRadius.circular(8),
@@ -68,6 +81,10 @@ class ListViewBuilderDemo extends StatelessWidget {
           ),
         ),
       ),
+
+      // 
+
     );
   }
+
 }
