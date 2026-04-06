@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/buttons/elevated_buttton_demo.dart';
+import 'package:flutter_basics/buttons/icon_button_demo.dart';
 
 class ButtonDriverDemo extends StatelessWidget {
   const ButtonDriverDemo({super.key});
@@ -7,7 +8,6 @@ class ButtonDriverDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       // app bar
       appBar: AppBar(
         foregroundColor: Colors.white,
@@ -43,13 +43,16 @@ class ButtonDriverDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // elevated button
-            ElevatedButttonDemo()
+            ElevatedButttonDemo(),
+            SizedBox(
+              height: 50,
+            ),
+            IconButtonDemo(),
           ],
         ),
       ),
 
       // bottom nav bar
-
     );
   }
 }
