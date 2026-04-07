@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/buttons/elevated_buttton_demo.dart';
 import 'package:flutter_basics/buttons/icon_button_demo.dart';
+import 'package:flutter_basics/buttons/text_button_demo.dart';
 
 class ButtonDriverDemo extends StatelessWidget {
   const ButtonDriverDemo({super.key});
@@ -16,7 +17,7 @@ class ButtonDriverDemo extends StatelessWidget {
           'Buttons',
           style: TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w400,
           ),
         ),
 
@@ -26,6 +27,8 @@ class ButtonDriverDemo extends StatelessWidget {
             Icons.location_city,
           ),
         ],
+
+        actionsPadding: const EdgeInsets.only(right: 10),
       ),
 
       // drawer
@@ -47,7 +50,15 @@ class ButtonDriverDemo extends StatelessWidget {
             SizedBox(
               height: 50,
             ),
+
+            // Icon Button
             IconButtonDemo(),
+            SizedBox(
+              height: 50,
+            ),
+
+            // Text Button
+            TextButtonDemo(),
           ],
         ),
       ),
