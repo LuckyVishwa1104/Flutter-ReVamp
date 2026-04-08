@@ -94,6 +94,77 @@ class GesturePageDemo extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                GestureDetector(
+                  onTap: () => Navigator.pushNamed(context, '/containerPage'),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 2,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onDoubleTap: () =>
+                      Navigator.pushNamed(context, '/containerPage'),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 2,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onLongPress: () =>
+                      Navigator.pushNamed(context, '/containerPage'),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1,
+                      ),
+                      color: Colors.yellow,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 2,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             )
           ],
         ),
