@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class GesturePageDemo extends StatelessWidget {
+class GesturePageDemo extends StatefulWidget {
   const GesturePageDemo({super.key});
+
+  @override
+  State<GesturePageDemo> createState() => _GesturePageDemoState();
+}
+
+class _GesturePageDemoState extends State<GesturePageDemo> {
+  double x = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +172,32 @@ class GesturePageDemo extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+
+            GestureDetector(
+              onHorizontalDragUpdate: (details) {
+                setState(() {
+                  x += details.delta.dx;
+                });
+                debugPrint(x.toString());
+              },
+              child: Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black,
+                      blurRadius: 2,
+                      offset: Offset(2, 2),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            
           ],
         ),
       ),
