@@ -24,6 +24,8 @@ import 'package:flutter_basics/gesture_detector/text_page.dart';
 import 'package:flutter_basics/gesture_detector/zoom_gesture_demo.dart';
 import 'package:flutter_basics/home_page_new.dart';
 import 'package:flutter_basics/hone_page.dart';
+import 'package:flutter_basics/images/image_driver.dart';
+import 'package:flutter_basics/images/image_driver_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return 
 
-    // const GestureDriver();
+    // const ImageDriver();
 
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: Colors.blue,
       ),
-      home: const ZoomGestureDemo(),
+      home: const ImageDriverDemo(),
       routes: {
         '/imagePage' : (context) => const ImagePage(),
         '/iconPage' : (context) => const IconPage(),

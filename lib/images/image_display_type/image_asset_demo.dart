@@ -7,13 +7,13 @@ class ImageAssetDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadiusGeometry.circular(6),
-      child: SizedBox(
+      borderRadius: BorderRadiusGeometry.circular(12),  // to add forced border radius to the image
+      child: SizedBox( // fixed height and width to occupy the image
         height: 150,
         width: 190,
         child: Image.asset(
-          path,
-          fit: BoxFit.cover,
+          path, // url of the image in the project
+          fit: BoxFit.cover,  // to fit the image in the avainable space(container) - by zooming in the image
         ),
       ),
     );
