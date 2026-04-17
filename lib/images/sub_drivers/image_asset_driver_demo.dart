@@ -11,15 +11,15 @@ class ImageAssetDriverDemo extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          ImageAssetDemo(path: '/assets/img2.jpeg'),
+          ImageAssetDemo(path: 'assets/img2.jpeg'),
           SizedBox(
             width: 10,
           ),
-          ImageAssetDemo(path: '/assests/img3.jpeg'),
+          ImageAssetDemo(path: 'assets/img3.jpeg'),
           SizedBox(
             width: 10,
           ),
-          ImageAssetDemo(path: '/assets/img4.jpeg'),
+          ImageAssetDemo(path: 'assets/img4.jpeg'),
         ],
       ),
     );
