@@ -5,7 +5,10 @@ class ElevatedButttonDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ElevatedButton(
+
+      // styking of the button 
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
@@ -26,10 +29,12 @@ class ElevatedButttonDemo extends StatelessWidget {
         ),
       ),
 
+      // on pressed function of the button
       onPressed: () {
         debugPrint('Button Clicked !!!');
       },
 
+      // child fo the elevated button 
       child: const Text(
         'Click',
         style: TextStyle(
