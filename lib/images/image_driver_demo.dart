@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/images/sub_drivers/image_asset_driver_demo.dart';
+import 'package:flutter_basics/images/sub_drivers/image_file_driver_demo.dart';
 import 'package:flutter_basics/images/sub_drivers/image_network_driver_demo.dart';
 
 class ImageDriverDemo extends StatelessWidget {
@@ -35,15 +36,13 @@ class ImageDriverDemo extends StatelessWidget {
 
       // body of the image displayer
       body: Container(
-        decoration: const BoxDecoration(
-          color:  Color.fromARGB(255, 206, 234, 195)
-        ),
+        decoration:
+            const BoxDecoration(color: Color.fromARGB(255, 206, 234, 195)),
         child: const SingleChildScrollView(
           padding: EdgeInsets.all(12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-        
               // image by assets
               Text(
                 'Image By Assets',
@@ -78,6 +77,22 @@ class ImageDriverDemo extends StatelessWidget {
                 height: 20,
               ),
 
+              // image by file
+              Text(
+                'Image By File',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ImageFileDriverDemo(),
+              SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
