@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/images/sub_drivers/image_asset_driver_demo.dart';
 import 'package:flutter_basics/images/sub_drivers/image_file_driver_demo.dart';
+import 'package:flutter_basics/images/sub_drivers/image_memory_driver_demo.dart';
 import 'package:flutter_basics/images/sub_drivers/image_network_driver_demo.dart';
 
 class ImageDriverDemo extends StatelessWidget {
@@ -90,6 +91,23 @@ class ImageDriverDemo extends StatelessWidget {
                 height: 10,
               ),
               ImageFileDriverDemo(),
+              SizedBox(
+                height: 20,
+              ),
+
+              // image by Memory - used to display image when it is in yte format (API response, base64, etc.)
+              Text(
+                'Image By Memory',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ImageMemoryDriverDemo(),
               SizedBox(
                 height: 20,
               ),
