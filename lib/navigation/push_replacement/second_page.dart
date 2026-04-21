@@ -7,7 +7,16 @@ class SecondPage extends StatelessWidget {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) =>const ThirdPage(),
+        builder: (context) => const ThirdPage(),
+      ),
+    );
+  }
+
+  void nextPage(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ThirdPage(),
       ),
     );
   }
@@ -16,12 +25,56 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Second Page'),
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        title: const Text(
+          'Second Page',
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        actions: const [
+          Icon(
+            Icons.star_border_purple500,
+          )
+        ],
+        actionsPadding: const EdgeInsets.only(
+          right: 10,
+        ),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => moveNext(context),
-          child: const Text("Next Page"),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () => moveNext(context),
+              child: const Text("Next Page"),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(8),
+                ),
+                padding: const EdgeInsets.only(
+                    right: 25, left: 25, top: 15, bottom: 15),
+              ),
+              onPressed: () => nextPage(context),
+              child: const Text(
+                'Next Page',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
