@@ -28,6 +28,8 @@ import 'package:flutter_basics/images/image_driver.dart';
 import 'package:flutter_basics/images/image_driver_demo.dart';
 import 'package:flutter_basics/navigation/push/push_driver.dart';
 import 'package:flutter_basics/navigation/push/push_driver_demo.dart';
+import 'package:flutter_basics/navigation/push_replacement/push_replacement_driver.dart';
+import 'package:flutter_basics/navigation/push_replacement/replacement_driver_demo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return 
 
-    // const NavigationDriver();
+    // const PushReplacement();
 
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: Colors.blue,
       ),
-      home: const PushDriverDemo(),
+      home: const ReplacementDriverDemo(),
       routes: {
         '/imagePage' : (context) => const ImagePage(),
         '/iconPage' : (context) => const IconPage(),
