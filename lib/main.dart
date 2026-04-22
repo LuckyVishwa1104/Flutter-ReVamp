@@ -26,6 +26,7 @@ import 'package:flutter_basics/home_page_new.dart';
 import 'package:flutter_basics/hone_page.dart';
 import 'package:flutter_basics/images/image_driver.dart';
 import 'package:flutter_basics/images/image_driver_demo.dart';
+import 'package:flutter_basics/navigation/pop_until/navigation_pop_driver.dart';
 import 'package:flutter_basics/navigation/push/push_driver.dart';
 import 'package:flutter_basics/navigation/push/push_driver_demo.dart';
 import 'package:flutter_basics/navigation/push_replacement/push_replacement_driver.dart';
@@ -43,22 +44,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return 
 
-    // const PushReplacement();
+    const NavigationPopDriver();
 
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.blue,
-      ),
-      home: const ReplacementDriverDemo(),
-      routes: {
-        '/imagePage' : (context) => const ImagePage(),
-        '/iconPage' : (context) => const IconPage(),
-        '/textPage' : (contex) => const TextPage(),
-        '/containerPage' : (context) => const ContainerPage(),
-      },
-    );
+    // MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData(
+    //     useMaterial3: true,
+    //     colorSchemeSeed: Colors.blue,
+    //   ),
+    //   home: const ReplacementDriverDemo(),
+    //   routes: {
+    //     '/imagePage' : (context) => const ImagePage(),
+    //     '/iconPage' : (context) => const IconPage(),
+    //     '/textPage' : (contex) => const TextPage(),
+    //     '/containerPage' : (context) => const ContainerPage(),
+    //   },
+    // );
 
   }
 }
