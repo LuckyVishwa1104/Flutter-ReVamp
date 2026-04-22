@@ -3,9 +3,20 @@ import 'package:flutter_basics/navigation/pop_until/home_page.dart';
 
 class ConfirmStatus extends StatelessWidget {
   const ConfirmStatus({super.key});
+
+  // navigate to the very first route fo the app
   void moveHome(BuildContext context) {
     Navigator.popUntil(
-        context, (route) => route.settings.name == null && route.isFirst);
+        context, (route) => route.isFirst);
+  }
+
+  void navInitial(BuildContext context){
+    Navigator.popUntil(context, (route) => route.isFirst);
+  }
+
+  // navigate to particula page - application only with pushNamed()
+  void navHome(BuildContext context){
+    Navigator.popUntil(context, ModalRoute.withName('/home'),);
   }
 
   @override
@@ -16,7 +27,7 @@ class ConfirmStatus extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => moveHome(context),
+          onPressed: () => navHome(context),
           child: const Text('Return to Home Screen'),
         ),
       ),
