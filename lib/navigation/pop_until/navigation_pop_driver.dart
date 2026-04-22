@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/navigation/pop_until/home_page.dart';
 import 'package:flutter_basics/navigation/pop_until/initial_screen.dart';
 
 class NavigationPopDriver extends StatelessWidget {
@@ -6,9 +7,12 @@ class NavigationPopDriver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: InitialScreen(),
+      home: const InitialScreen(),
+      routes: {
+        '/home' : (context) => const HomePagePop(),
+      },
     );
   }
 }

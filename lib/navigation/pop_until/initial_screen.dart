@@ -13,6 +13,11 @@ class InitialScreen extends StatelessWidget {
     );
   }
 
+  // pushNamed route - pushing in stack with named route
+  void moveHomeNamed(BuildContext context){
+    Navigator.pushNamed(context, '/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +26,7 @@ class InitialScreen extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-            onPressed: () => moveHome(context),
+            onPressed: () => moveHomeNamed(context),
             child:const Text('Go to Home Screen')),
       ),
     );
