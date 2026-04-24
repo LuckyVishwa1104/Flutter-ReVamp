@@ -35,11 +35,15 @@ class _ModalBottomSheetDemoState extends State<ModalBottomSheetDemo> {
     const Icon(Icons.notifications, color: Colors.redAccent),
   ];
 
-  void navToOption(BuildContext context) {
+  void navToOption(BuildContext context, String title) {
+    Navigator.pop(context);  // pop the bottom sheet on option click
+
+    // await Future.delayed(const Duration(milliseconds: 200));
+
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const OptionPage(),
+        builder: (context) => OptionPage(optionTitle: title,),
       ),
     );
   }
@@ -143,7 +147,7 @@ class _ModalBottomSheetDemoState extends State<ModalBottomSheetDemo> {
                   return Column(
                     children: [
                       GestureDetector(
-                        onTap: () => navToOption(context),
+                        onTap: () => navToOption(context, optionList[index]),
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           width: double.infinity,
