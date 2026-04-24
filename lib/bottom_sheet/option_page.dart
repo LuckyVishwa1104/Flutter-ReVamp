@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OptionPage extends StatelessWidget {
-  const OptionPage({super.key});
+  final String optionTitle;
+  const OptionPage({super.key, required this.optionTitle});
 
   void moveBack(BuildContext context) {
     Navigator.pop(context);
@@ -13,9 +14,9 @@ class OptionPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
-        title: const Text(
-          'Bottom Sheet',
-          style: TextStyle(
+        title: Text(
+          optionTitle,
+          style: const TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.w400,
           ),
