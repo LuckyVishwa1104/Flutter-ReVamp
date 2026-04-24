@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/bottom_sheet/option_page.dart';
 
 class ModalBottomSheetDemo extends StatefulWidget {
   const ModalBottomSheetDemo({super.key});
@@ -9,12 +10,39 @@ class ModalBottomSheetDemo extends StatefulWidget {
 
 class _ModalBottomSheetDemoState extends State<ModalBottomSheetDemo> {
   final List<String> optionList = [
-    'Option 1',
-    'Option 2',
-    'Option 3',
-    'Option 4',
-    'Option 5'
+    'Profile',
+    'Settings',
+    'Favorites',
+    'Help Center',
+    'Notifications',
+    'Profile',
+    'Settings',
+    'Favorites',
+    'Help Center',
+    'Notifications',
   ];
+
+  final List<Icon> optionIcon = [
+    const Icon(Icons.person, color: Colors.amber),
+    const Icon(Icons.settings, color: Colors.blueGrey),
+    const Icon(Icons.favorite, color: Colors.pink),
+    const Icon(Icons.help_outline, color: Colors.green),
+    const Icon(Icons.notifications, color: Colors.redAccent),
+    const Icon(Icons.person, color: Colors.amber),
+    const Icon(Icons.settings, color: Colors.blueGrey),
+    const Icon(Icons.favorite, color: Colors.pink),
+    const Icon(Icons.help_outline, color: Colors.green),
+    const Icon(Icons.notifications, color: Colors.redAccent),
+  ];
+
+  void navToOption(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const OptionPage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,20 +121,63 @@ class _ModalBottomSheetDemoState extends State<ModalBottomSheetDemo> {
       // barrierColor: Colors.black,  // set color to the space behind the bottom sheet
 
       builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: ListView.builder(
-            itemCount: optionList.length,
-            itemBuilder: (context, index) {
-              return Text(
-                optionList[index],
-                style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black),
-              );
-            },
-          ),
+        return Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.all(15),
+              height: 5,
+              width: 80,
+              decoration: const BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.horizontal(
+                  left: Radius.circular(3),
+                  right: Radius.circular(3),
+                ),
+              ),
+            ),
+            Flexible(
+              child: ListView.builder(
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 18),
+                itemCount: optionList.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () => navToOption(context),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: const Color.fromARGB(255, 228, 226, 226),
+                          ),
+                          child: Row(
+                            children: [
+                              optionIcon[index],
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                optionList[index],
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      if (index != (optionList.length - 1))
+                        const SizedBox(
+                          height: 10,
+                        ),
+                    ],
+                  );
+                },
+              ),
+            ),
+          ],
         );
       },
     );
