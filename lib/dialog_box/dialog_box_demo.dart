@@ -55,7 +55,7 @@ class DialogBoxDemo extends StatelessWidget {
                   horizontal: buttonHorizontalPadding,
                 ),
               ),
-              onPressed: (){
+              onPressed: () {
                 _showDeleteDialog(context);
               },
               child: const Text(
@@ -81,9 +81,11 @@ class DialogBoxDemo extends StatelessWidget {
                   horizontal: buttonHorizontalPadding,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                _showLogoutDialog(context);
+              },
               child: const Text(
-                'Click',
+                'Logout',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
@@ -98,16 +100,19 @@ class DialogBoxDemo extends StatelessWidget {
                 backgroundColor: Colors.black,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(8),  // to adjust the border radius of the
+                  borderRadius: BorderRadiusGeometry.circular(
+                      8), // to adjust the border radius of the
                 ),
                 padding: EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: buttonHorizontalPadding,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                _showSuccesDialog(context);
+              },
               child: const Text(
-                'Click',
+                'Success',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
@@ -144,17 +149,104 @@ class DialogBoxDemo extends StatelessWidget {
     );
   }
 
+  // success dialog
+  Future<void> _showSuccesDialog(BuildContext context) {
+    return showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: const Color.fromARGB(255, 238, 253, 250),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(15),
+          ),
+          actionsAlignment: MainAxisAlignment.spaceAround,
+          title: const Text('Payment'),
+          content: SizedBox(
+            height: 100,
+            child: Column(
+              children: [
+                Icon(
+                  Icons.check_box_rounded,
+                  size: 60,
+                ),
+                SizedBox(height: 20,),
+                Text('Payment has been completed successfully!'),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                debugPrint('Sucess Dialog Clicked!');
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Ok',
+                style: TextStyle(color: Colors.green),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // logout dialog
+  Future<void> _showLogoutDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: const Color.fromARGB(255, 231, 231, 231),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(15),
+          ),
+          actionsAlignment: MainAxisAlignment.spaceAround,
+          title: const Text('Logout'),
+          content: const Text('Are you sure you want to Logout!'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                debugPrint('Logout Dialog Clicked.');
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'No',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                debugPrint('Logout Dialog Clicked.');
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Yes',
+                style: TextStyle(color: Colors.green),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // delete dialog
   Future<void> _showDeleteDialog(BuildContext context) {
     return showDialog(
-      barrierDismissible: false,  // to control the background click to dismis the dialog
+      barrierDismissible:
+          false, // to control the background click to dismis the dialog
       context: context,
       builder: (context) {
         return AlertDialog(
           // backgroundColor: Colors.blueGrey,  // to control the background color of the dialog box
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(12), // to adjust the border radius of the dialog box
+            borderRadius: BorderRadiusGeometry.circular(
+                12), // to adjust the border radius of the dialog box
           ),
-          actionsAlignment: MainAxisAlignment.spaceBetween, // to control the aligment of action button
+          actionsAlignment: MainAxisAlignment
+              .spaceBetween, // to control the aligment of action button
           title: const Text('Delete'),
           content: const Text('Are you sure you want to delete!'),
           actions: [
@@ -163,14 +255,20 @@ class DialogBoxDemo extends StatelessWidget {
                 debugPrint('Delete Dialog Clicked !!!');
                 Navigator.pop(context);
               },
-              child: const Text('Confirm'),
+              child: const Text(
+                'Cancle',
+                style: TextStyle(color: Colors.red),
+              ),
             ),
             TextButton(
               onPressed: () {
                 debugPrint('Delete Dialog Clicked !!!');
                 Navigator.pop(context);
               },
-              child: const Text('Cancle'),
+              child: const Text(
+                'Confirm',
+                style: TextStyle(color: Colors.green),
+              ),
             ),
           ],
         );
