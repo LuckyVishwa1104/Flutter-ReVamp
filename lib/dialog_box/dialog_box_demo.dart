@@ -4,7 +4,7 @@ class DialogBoxDemo extends StatelessWidget {
   const DialogBoxDemo({super.key});
 
   final double verticalSpace = 20;
-  final double buttonHorizontalPadding = 30;
+  final double buttonHorizontalPadding = 16;
 
   @override
   Widget build(BuildContext context) {
@@ -43,109 +43,163 @@ class DialogBoxDemo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(8),
+            SizedBox(
+              height: 50,
+              width: 120,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(8),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: buttonHorizontalPadding,
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: buttonHorizontalPadding,
-                ),
-              ),
-              onPressed: () {
-                _showDeleteDialog(context);
-              },
-              child: const Text(
-                'Delete',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
+                onPressed: () {
+                  _showDeleteDialog(context);
+                },
+                child: const Text(
+                  'Delete',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ),
             SizedBox(
               height: verticalSpace,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(8),
+            SizedBox(
+              height: 50,
+              width: 120,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(8),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: buttonHorizontalPadding,
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: buttonHorizontalPadding,
-                ),
-              ),
-              onPressed: () {
-                _showLogoutDialog(context);
-              },
-              child: const Text(
-                'Logout',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
+                onPressed: () {
+                  _showLogoutDialog(context);
+                },
+                child: const Text(
+                  'Logout',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ),
             SizedBox(
               height: verticalSpace,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(
-                      8), // to adjust the border radius of the
+            SizedBox(
+              height: 50,
+              width: 120,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(
+                        8), // to adjust the border radius of the
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: buttonHorizontalPadding,
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: buttonHorizontalPadding,
-                ),
-              ),
-              onPressed: () {
-                _showSuccesDialog(context);
-              },
-              child: const Text(
-                'Success',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
+                onPressed: () {
+                  _showSuccesDialog(context);
+                },
+                child: const Text(
+                  'Success',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ),
             SizedBox(
               height: verticalSpace,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(8),
+            SizedBox(
+              height: 50,
+              width: 120,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(8),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: buttonHorizontalPadding,
+                  ),
                 ),
-                padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: buttonHorizontalPadding,
-                ),
-              ),
-              onPressed: () {},
-              child: const Text(
-                'Click',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
+                onPressed: () async {
+                  _showLoader(context);
+                  await Future.delayed(
+                    const Duration(milliseconds: 1000),
+                  );
+                  // Navigator.pop(context);
+                  if (context.mounted) {
+                    Navigator.pop(context);
+                  }
+                },
+                child: const Text(
+                  'Loading',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  // loding dialog
+  Future<void> _showLoader(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Container(
+            height: 80,
+            width: 80,
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(12)),
+            child: const CircularProgressIndicator(
+              color: Colors.black,
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -162,7 +216,7 @@ class DialogBoxDemo extends StatelessWidget {
           ),
           actionsAlignment: MainAxisAlignment.spaceAround,
           title: const Text('Payment'),
-          content: SizedBox(
+          content: const SizedBox(
             height: 100,
             child: Column(
               children: [
@@ -170,7 +224,9 @@ class DialogBoxDemo extends StatelessWidget {
                   Icons.check_box_rounded,
                   size: 60,
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Text('Payment has been completed successfully!'),
               ],
             ),
