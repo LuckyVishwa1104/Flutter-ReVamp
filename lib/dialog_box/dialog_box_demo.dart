@@ -176,9 +176,175 @@ class DialogBoxDemo extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: verticalSpace,
+            ),
+            SizedBox(
+              height: 50,
+              width: 120,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(8),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: buttonHorizontalPadding,
+                  ),
+                ),
+                onPressed: () async {
+                  _showCustomDialog(context);
+                },
+                child: const Text(
+                  'Custom Dialog',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  // customer dialog box
+  Future<void> _showCustomDialog(BuildContext context) {
+    return showDialog(
+      // barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            height: 170,
+            width: 250,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 233, 233, 233),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              children: [
+                const Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Custom Dialog',
+                          style: TextStyle(
+                            fontSize: 27,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'This is a custom dialog with full customization.',
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w300,
+                            // color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Divider(
+                  height: 1,
+                  color: Colors.black,
+                ),
+                SizedBox(
+                  height: 40,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Center(
+                              child: Text(
+                                'Cancle',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                          // Container(
+                          //   alignment: Alignment.center,
+                          //   decoration: const BoxDecoration(
+                          //     color: Color.fromARGB(255, 236, 105, 105),
+                          //     borderRadius: BorderRadius.only(
+                          //       bottomLeft: Radius.circular(12),
+                          //     ),
+                          //   ),
+                          //   child: const Text(
+                          //     'Cancle',
+                          //     maxLines: 1,
+                          //     overflow: TextOverflow.ellipsis,
+                          //   ),
+                          // ),
+                        ),
+                      ),
+                      Container(
+                        // height: 44,
+                        width: 1,
+                        decoration: const BoxDecoration(
+                          color: Colors.black,
+                        ),
+                      ),
+                      Expanded(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Center(
+                              child: Text(
+                                'Confirm',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ),
+                          // Container(
+                          //   alignment: Alignment.center,
+                          //   decoration: const BoxDecoration(
+                          //     color: Color.fromARGB(255, 192, 249, 127),
+                          //     borderRadius: BorderRadius.only(
+                          //       bottomRight: Radius.circular(12),
+                          //     ),
+                          //   ),
+                          //   child: const Text(
+                          //     'Confirm',
+                          //     maxLines: 1,
+                          //     overflow: TextOverflow.ellipsis,
+                          //   ),
+                          // ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
