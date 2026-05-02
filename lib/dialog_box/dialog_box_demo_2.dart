@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/components/custom_app_bar.dart';
 import 'package:flutter_basics/components/custom_drawer.dart';
 import 'package:flutter_basics/drawer/drawer_option.dart';
 import 'package:flutter_basics/model/drawer_item_model.dart';
@@ -63,26 +64,20 @@ class DialogBoxDemo2 extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-        title: const Text(
-          'Dialog box',
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
-        ),
-        actions: const [
+      //. app bar
+      appBar: const CustomAppBar(
+        title: 'Dialog Box',
+        actions: [
           Icon(
-            Icons.share,
-            size: 30,
-          )
+            Icons.cloud_circle,
+          ),
         ],
-        actionsPadding: const EdgeInsets.only(right: 10),
       ),
 
       // drawer
-      drawer: CustomDrawer(drawerItems: itemList),
+      drawer: CustomDrawer(
+        drawerItems: itemList,
+      ),
 
       // body
       body: const Center(
@@ -102,4 +97,5 @@ class DialogBoxDemo2 extends StatelessWidget {
       
     );
   }
+
 }
