@@ -23,7 +23,7 @@ class CustomDrawer extends StatelessWidget {
                   child: Icon(
                     Icons.person,
                     color: Colors.white,
-                    size: 25,
+                    size: 40,
                   ),
                 ),
                 SizedBox(height: 10),
