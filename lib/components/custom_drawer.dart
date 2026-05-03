@@ -39,22 +39,17 @@ class CustomDrawer extends StatelessWidget {
               ],
             ),
           ),
-          
-          const Divider(),
 
-          ListView.builder(
-            itemCount: drawerItems.length,
-            itemBuilder: (context, index) {
-              final item = drawerItems[index];
-
+          ...drawerItems.map(
+            (items) {
               return ListTile(
                 leading: Icon(
-                  item.itemIcon,
+                  items.itemIcon,
                   color: Colors.black,
                   size: 20,
                 ),
                 title: Text(
-                  item.itemTitle,
+                  items.itemTitle,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
@@ -63,11 +58,38 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 onTap: () {
                   Navigator.pop(context);
-                  item.onTap;
+                  items.onTap();
                 },
               );
             },
           ),
+
+          // ListView.builder(
+          //   itemCount: drawerItems.length,
+          //   itemBuilder: (context, index) {
+          //     final item = drawerItems[index];
+
+          //     return ListTile(
+          //       leading: Icon(
+          //         item.itemIcon,
+          //         color: Colors.black,
+          //         size: 20,
+          //       ),
+          //       title: Text(
+          //         item.itemTitle,
+          //         style: const TextStyle(
+          //           color: Colors.black,
+          //           fontSize: 20,
+          //           fontWeight: FontWeight.w300,
+          //         ),
+          //       ),
+          //       onTap: () {
+          //         Navigator.pop(context);
+          //         item.onTap();
+          //       },
+          //     );
+          //   },
+          // ),
         ],
       ),
     );
