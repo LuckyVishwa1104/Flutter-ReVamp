@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/bottom_sheet/option_page.dart';
+import 'package:flutter_basics/components/custom_bottom_sheet.dart';
+import 'package:flutter_basics/default_page.dart';
+import 'package:flutter_basics/model/bottomsheet_item_model.dart';
 
 class ModalBottomSheetDemo extends StatefulWidget {
   const ModalBottomSheetDemo({super.key});
@@ -36,20 +39,89 @@ class _ModalBottomSheetDemoState extends State<ModalBottomSheetDemo> {
   ];
 
   void navToOption(BuildContext context, String title) {
-    Navigator.pop(context);  // pop the bottom sheet on option click
+    Navigator.pop(context); // pop the bottom sheet on option click
 
     // await Future.delayed(const Duration(milliseconds: 200));
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => OptionPage(optionTitle: title,),
+        builder: (context) => OptionPage(
+          optionTitle: title,
+        ),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final List<BottomsheetItemModel> itemList = [
+      BottomsheetItemModel(
+        title: 'Profile',
+        icon: Icons.person_outline,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+      BottomsheetItemModel(
+        title: 'My Orders',
+        icon: Icons.shopping_bag_outlined,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+      BottomsheetItemModel(
+        title: 'Notifications',
+        icon: Icons.notifications_none_rounded,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+      BottomsheetItemModel(
+        title: 'Settings',
+        icon: Icons.settings_outlined,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+      BottomsheetItemModel(
+        title: 'Privacy Policy',
+        icon: Icons.privacy_tip_outlined,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+      BottomsheetItemModel(
+        title: 'Help Center',
+        icon: Icons.help_outline_rounded,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+      BottomsheetItemModel(
+        title: 'About Us',
+        icon: Icons.info_outline_rounded,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+      BottomsheetItemModel(
+        title: 'Logout',
+        icon: Icons.logout_rounded,
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DefaultPage()));
+        },
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -98,7 +170,7 @@ class _ModalBottomSheetDemoState extends State<ModalBottomSheetDemo> {
             ),
           ),
           onPressed: () {
-            _openBottomSheet(context);
+            CustomBottomSheet.show(context: context, items: itemList);
           },
           child: const Text('Bottom Sheet'),
         ),
