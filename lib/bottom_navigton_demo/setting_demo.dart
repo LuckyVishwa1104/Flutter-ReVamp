@@ -6,7 +6,7 @@ class SettingDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 238, 199, 154),
+      color: const Color.fromARGB(255, 237, 229, 219),
       padding: const EdgeInsets.all(8),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,

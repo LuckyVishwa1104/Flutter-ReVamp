@@ -7,7 +7,7 @@ class ProfileDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-        color: const Color.fromARGB(255, 212, 196, 196),
+        color: const Color.fromARGB(255, 236, 225, 225),
         child: Container(
           padding: const EdgeInsets.all(18),
           child: Column(
@@ -16,7 +16,7 @@ class ProfileDemo extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: const Color.fromARGB(255, 228, 228, 227),
+                  color: const Color.fromARGB(255, 255, 255, 235),
                 ),
                 child: const Icon(
                   Icons.person,
