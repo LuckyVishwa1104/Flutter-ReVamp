@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: Colors.blue,
       ),
-      home: const DialogBoxDemo2(),
+      home: const PersistentNavbarDriver(),
       routes: {
         '/imagePage' : (context) => const ImagePage(),
         '/iconPage' : (context) => const IconPage(),
